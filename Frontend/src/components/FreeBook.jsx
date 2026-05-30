@@ -1,5 +1,5 @@
 import React from "react";
-import List from "../data/list.json";
+
 import Cards from './Cards.jsx'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -7,12 +7,27 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useState } from 'react';
+import axios from "axios";
+import { useEffect } from 'react';
 
 function FreeBook() {
-
-  const filterData = List.filter(
+  const [book,setBook]=useState([]);
+  useEffect(()=>{
+    const getBook = async()=>{
+      try{
+         const res = await axios.get("http://localhost:3000/book");
+         console.log(res.data);
+         setBook(res.data.filter(
     (data) => data.category === "free"
-  );
+  ));
+      }catch(error){
+           console.log(error);
+      }
+    }
+    getBook();
+  },[])
+ 
 
   return (
     <>
@@ -40,7 +55,7 @@ function FreeBook() {
   navigation={true}
   pagination={{ clickable: true }}
 >
-    {[...filterData].map((item) => (
+    {book.map((item) => (
 
           <SwiperSlide key={item.id} className="flex justify-center">
 

@@ -1,0 +1,31 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "MERN project",
+  "type": "module",
+  "homepage": "https://github.com/Gaurii2911/bookStoreApp#readme",
+  "bugs": {
+    "url": "https://github.com/Gaurii2911/bookStoreApp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gaurii2911/bookStoreApp.git"
+  },
+  "license": "ISC",
+  "author": "Gauri Saxena",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "mongoose": "^9.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
